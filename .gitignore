@@ -1,0 +1,6 @@
+*.class
+.vscode
+sources.txt
+.idea/
+bin/
+simulation.txt
