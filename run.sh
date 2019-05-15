@@ -1,1 +1,1 @@
-java -classpath src zfaria/avajlauncher/Simulator $1 $2
+java -classpath bin zfaria/avajlauncher/Simulator $1 $2
