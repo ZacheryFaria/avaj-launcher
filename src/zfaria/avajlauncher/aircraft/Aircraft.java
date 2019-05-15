@@ -20,13 +20,4 @@ public abstract class Aircraft implements Flyable {
         idCounter++;
         return idCounter;
     }
-
-    public boolean isActive() {
-        return coords.getHeight() > 0;
-    }
-
-    public void land() {
-        Logger.getInstance().out.printf("%s landed at: Long: %d Lat: %d\n", this, coords.getLongitude(), coords
-        .getLatitude());
-    }
 }

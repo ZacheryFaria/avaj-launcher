@@ -29,10 +29,6 @@ public class Tower {
         for (int i = observers.size() - 1; i > 0; i--) {
             Flyable f = observers.get(i);
             f.updateConditions();
-            if (!f.isActive()) {
-                unregister(f);
-                f.land();
-            }
         }
     }
 

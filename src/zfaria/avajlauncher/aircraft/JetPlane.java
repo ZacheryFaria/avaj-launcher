@@ -1,5 +1,6 @@
 package zfaria.avajlauncher.aircraft;
 
+import sun.rmi.runtime.Log;
 import zfaria.avajlauncher.Logger;
 import zfaria.avajlauncher.WeatherTower;
 
@@ -31,6 +32,11 @@ public class JetPlane extends Aircraft {
         } else if (weather.equals("SNOW")) {
             Logger.getInstance().out.println(this + " Getting a bit chilly....");
             coords.addCoordinates(0, 0, -7);
+        }
+
+        if (coords.getHeight() <= 0) {
+            tower.unregister(this);
+            Logger.getInstance().out.printf("%s landed at Long: %d Lat: %d\n", this, coords.getLongitude(), coords.getLatitude());
         }
     }
 

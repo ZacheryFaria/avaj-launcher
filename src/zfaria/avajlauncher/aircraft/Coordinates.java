@@ -31,4 +31,8 @@ public class Coordinates {
         if (this.height < 0) this.height = 0;
         if (this.height > 100) this.height = 100;
     }
+
+    public int dot() {
+        return longitude * latitude * height;
+    }
 }

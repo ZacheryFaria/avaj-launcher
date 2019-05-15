@@ -4,6 +4,7 @@ import zfaria.avajlauncher.aircraft.Coordinates;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 public class WeatherProvider {
 
@@ -23,16 +24,9 @@ public class WeatherProvider {
      * This new byte is now used to select the weather.
      */
     public String getCurrentWeather(Coordinates c) {
-        MessageDigest md5 = null;
-        try {
-            md5 = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {}
-        int seed = c.getLatitude() + 1 + c.getLongitude() + c.getHeight();
-        md5.update((seed + "").getBytes());
-        byte b[] = md5.digest();
-        seed = b[0] % b.length;
-        seed = Math.abs(seed);
-        seed = b[seed];
+        int seed = c.dot();
+        Random r = new Random(seed);
+        seed = r.nextInt();
         seed = Math.abs(seed);
         return weather[seed % 4];
     }

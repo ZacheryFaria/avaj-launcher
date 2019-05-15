@@ -33,6 +33,11 @@ public class Helicopter extends Aircraft {
             Logger.getInstance().out.println(this + " My rotors are gonna freeze!");
             coords.addCoordinates(0, 0, -12);
         }
+
+        if (coords.getHeight() <= 0) {
+            tower.unregister(this);
+            Logger.getInstance().out.printf("%s landed at Long: %d Lat: %d\n", this, coords.getLongitude(), coords.getLatitude());
+        }
     }
 
     @Override
