@@ -20,21 +20,21 @@ public class Baloon extends Aircraft {
     public void updateConditions() {
         String weather = tower.getWeather(coords);
         if (weather.equals("SUN")) {
-            Logger.getInstance().out.println(this + " SUNNY");
+            Logger.getInstance().out.println(this + " Looks like a beautiful day for some sightseeing!");
             coords.addCoordinates(2, 0, 4);
         } else if (weather.equals("RAIN")) {
-            Logger.getInstance().out.println(this + " RAINY");
+            Logger.getInstance().out.println(this + " Aww man! My baloon is getting wet!");
             coords.addCoordinates(0, 0, -5);
         } else if (weather.equals("FOG")) {
-            Logger.getInstance().out.println(this + " FOGGY");
+            Logger.getInstance().out.println(this + " Getting hard to see... might need to land soon.");
             coords.addCoordinates(0, 0, -3);
         } else if (weather.equals("SNOW")) {
-            Logger.getInstance().out.println(this + " SNOWY");
+            Logger.getInstance().out.println(this + " The snow is gonna ruin my baloon!");
             coords.addCoordinates(0, 0, -15);
         }
     }
 
     public String toString() {
-        return String.format("Baloon#%s (%d)", name, id);
+        return String.format("Baloon#%s (%d):", name, id);
     }
 }
