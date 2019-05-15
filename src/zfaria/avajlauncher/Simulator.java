@@ -21,7 +21,6 @@ public class Simulator {
             scanner = new Scanner(new File(args[0]));
         } catch (FileNotFoundException e) {
             System.out.printf("File %s not found\n", args[0]);
-            scanner.close();
             System.exit(1);
         }
 
@@ -29,6 +28,7 @@ public class Simulator {
         int simulationCount = 0;
         try {
             simulationCount = Integer.parseInt(scanner.nextLine());
+            if (simulationCount <= 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
             System.out.println("# of simulations is not well formatted. Defaulting to 10..");
             simulationCount = 10;
@@ -52,6 +52,9 @@ public class Simulator {
         } catch (NoSuchAircraftException e) {
             System.out.println(e.getMessage());
             System.exit(1);
+        } catch (NumberFormatException e) {
+            System.out.println("File is not formatted properly");
+            System.exit(1);
         } finally {
             scanner.close();
         }
@@ -60,5 +63,18 @@ public class Simulator {
             tower.changeWeather();
         }
         Logger.getInstance().finish();
+        if (args.length == 2) {
+            if (args[1].equals("-echo")) {
+                try {
+                    scanner = new Scanner(new File("simulation.txt"));
+                } catch (FileNotFoundException e) {
+                    System.exit(1);
+                }
+                while (scanner.hasNext()) {
+                    System.out.println(scanner.nextLine());
+                }
+                scanner.close();
+            }
+        }
     }
 }

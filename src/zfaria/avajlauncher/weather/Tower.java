@@ -1,6 +1,5 @@
 package zfaria.avajlauncher.weather;
 
-import sun.rmi.runtime.Log;
 import zfaria.avajlauncher.Logger;
 import zfaria.avajlauncher.aircraft.Flyable;
 
