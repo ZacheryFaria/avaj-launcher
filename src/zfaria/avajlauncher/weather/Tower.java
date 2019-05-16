@@ -25,8 +25,7 @@ public class Tower {
     }
 
     protected void conditionsChanged() {
-        List<Flyable> toRemove = new ArrayList<Flyable>();
-        for (int i = observers.size() - 1; i > 0; i--) {
+        for (int i = 0; i < observers.size(); i++) {
             Flyable f = observers.get(i);
             f.updateConditions();
         }

@@ -1,6 +1,5 @@
 package zfaria.avajlauncher.aircraft;
 
-import sun.rmi.runtime.Log;
 import zfaria.avajlauncher.Logger;
 import zfaria.avajlauncher.WeatherTower;
 
