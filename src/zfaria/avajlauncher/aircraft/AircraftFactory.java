@@ -9,6 +9,8 @@ public class AircraftFactory {
             return new Baloon(name, new Coordinates(lon, lat, hei));
         else if (type.equals("Helicopter"))
             return new Helicopter(name, new Coordinates(lon, lat, hei));
+        else if (type.equals("Glider"))
+            return new Glider(name, new Coordinates(lon, lat, hei));
         else
             throw new NoSuchAircraftException(type);
     }

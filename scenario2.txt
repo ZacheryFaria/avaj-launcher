@@ -1,0 +1,5 @@
+25
+Baloon B1 2 3 20
+Helicopter H1 98 68 99
+JetPlane J1 223 23 54
+Glider G1 12 50 20
